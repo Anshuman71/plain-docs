@@ -2,6 +2,8 @@ import { useRouter } from 'next/router';
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs';
 import React from 'react';
 
+import DocslyClient from './components/Docsly';
+
 function Logo() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2561 769" height={20} fill="none">
@@ -81,7 +83,12 @@ const config: DocsThemeConfig = {
   },
 
   footer: {
-    text: <span>© Not Just Tickets Limited – {new Date().getFullYear()}</span>,
+    text: (
+      <>
+        <DocslyClient />
+        <span>© Not Just Tickets Limited – {new Date().getFullYear()}</span>
+      </>
+    ),
   },
 };
 
